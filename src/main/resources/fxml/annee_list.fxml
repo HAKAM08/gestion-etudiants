@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.monapp.controller.AnneeListController"
+            style="
+                -fx-background-color:linear-gradient(to bottom, #f5f7fa, #e9ecf1);
+            ">
+
+    <!-- ===== TOP BAR ===== -->
+    <top>
+        <HBox alignment="CENTER_LEFT"
+              spacing="15"
+              style="
+                  -fx-padding:18 24 18 24;
+                  -fx-background-color:#ffffff;
+                  -fx-effect:dropshadow(gaussian, rgba(0,0,0,0.12), 10, 0, 0, 2);
+              ">
+
+            <Label text="📅 Gestion des Années"
+                   style="
+                       -fx-font-size:22;
+                       -fx-font-weight:bold;
+                       -fx-text-fill:#2c3e50;
+                   "/>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <Button text="➕ Ajouter"
+                    onAction="#goToAdd"
+                    style="
+                        -fx-background-color:#22c55e;
+                        -fx-text-fill:white;
+                        -fx-font-size:14;
+                        -fx-font-weight:bold;
+                        -fx-padding:10 20 10 20;
+                        -fx-background-radius:8;
+                    "/>
+
+            <Button text="⬅ Retour"
+                    onAction="#goToDashboard"
+                    style="
+                        -fx-background-color:#e5e7eb;
+                        -fx-text-fill:#374151;
+                        -fx-font-size:14;
+                        -fx-padding:10 18 10 18;
+                        -fx-background-radius:8;
+                    "/>
+        </HBox>
+    </top>
+
+    <!-- ===== CENTER CONTENT ===== -->
+    <center>
+        <VBox alignment="TOP_CENTER"
+              spacing="20"
+              style="-fx-padding:30;">
+
+            <!-- Card -->
+            <VBox spacing="15"
+                  maxWidth="700"
+                  style="
+                      -fx-padding:25;
+                      -fx-background-color:white;
+                      -fx-background-radius:14;
+                      -fx-border-radius:14;
+                      -fx-effect:dropshadow(gaussian, rgba(0,0,0,0.18), 18, 0, 0, 6);
+                  ">
+
+                <Label text="Liste des années académiques"
+                       style="
+                           -fx-font-size:16;
+                           -fx-font-weight:600;
+                           -fx-text-fill:#374151;
+                       "/>
+
+                <!-- Search Control -->
+                <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-padding:10 0 5 0;">
+                    
+                    <TextField fx:id="searchField" 
+                               promptText="🔍 Rechercher une année..." 
+                               prefWidth="400"
+                               style="
+                                   -fx-background-color:#f9fafb;
+                                   -fx-border-color:#e5e7eb;
+                                   -fx-border-radius:8;
+                                   -fx-background-radius:8;
+                                   -fx-padding:8 12;
+                                   -fx-font-size:13;
+                               "/>
+                    
+                </HBox>
+
+                <TableView fx:id="table"
+                           style="
+                               -fx-background-color:transparent;
+                               -fx-border-color:#e5e7eb;
+                               -fx-border-radius:8;
+                           ">
+
+                    <columns>
+                        <TableColumn fx:id="nomCol"
+                                     text="Nom de l'année"
+                                     prefWidth="300"/>
+
+                        <TableColumn fx:id="actionCol"
+                                     text="Actions"
+                                     prefWidth="300"/>
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+        </VBox>
+    </center>
+
+</BorderPane>

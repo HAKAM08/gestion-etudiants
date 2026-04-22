@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/25"
+            fx:controller="com.monapp.controller.DashboardController"
+            prefWidth="900"
+            prefHeight="550"
+            style="
+                -fx-background-color:linear-gradient(to bottom, #f5f7fa, #e9ecf1);
+            ">
+
+    <!-- ================= TOP BAR ================= -->
+    <top>
+        <HBox spacing="15"
+              alignment="CENTER_LEFT"
+              style="
+                  -fx-padding:18 24;
+                  -fx-background-color:white;
+                  -fx-effect:dropshadow(gaussian, rgba(0,0,0,0.12), 10, 0, 0, 2);
+              ">
+
+            <Label fx:id="welcomeLabel"
+                   text="Bienvenue"
+                   style="
+                       -fx-font-size:18;
+                       -fx-font-weight:bold;
+                       -fx-text-fill:#2c3e50;
+                   "/>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <Button text="Déconnexion"
+                    onAction="#onLogout"
+                    style="
+                        -fx-background-color:#ef4444;
+                        -fx-text-fill:white;
+                        -fx-font-size:14;
+                        -fx-font-weight:bold;
+                        -fx-padding:8 16;
+                        -fx-background-radius:8;
+                    "/>
+        </HBox>
+    </top>
+
+    <!-- ================= CENTER ================= -->
+    <center>
+        <VBox spacing="30"
+              alignment="CENTER"
+              style="-fx-padding:40;">
+
+            <Label text="Tableau de bord Administrateur"
+                   style="
+                       -fx-font-size:26;
+                       -fx-font-weight:bold;
+                       -fx-text-fill:#2c3e50;
+                   "/>
+
+            <Label text="Gérez facilement les années, groupes et étudiants depuis un seul endroit"
+                   wrapText="true"
+                   style="
+                       -fx-font-size:14;
+                       -fx-text-fill:#6b7280;
+                   "/>
+
+            <!-- ================= CARDS ================= -->
+            <HBox spacing="30" alignment="CENTER">
+
+                <!-- ===== ANNÉES ===== -->
+                <VBox spacing="12"
+                      alignment="CENTER"
+                      prefWidth="240"
+                      style="
+                          -fx-background-color:white;
+                          -fx-padding:24;
+                          -fx-background-radius:14;
+                          -fx-border-radius:14;
+                          -fx-effect:dropshadow(gaussian, rgba(0,0,0,0.18), 18, 0, 0, 6);
+                      ">
+                    <Label text="📅" style="-fx-font-size:40;"/>
+                    <Label text="Années"
+                           style="-fx-font-size:17; -fx-font-weight:bold;"/>
+                    <Label text="Gestion des années universitaires"
+                           wrapText="true"
+                           style="-fx-text-fill:#6b7280; -fx-text-alignment:center;"/>
+                    <Button fx:id="btnAnnees"
+                            text="Gérer"
+                            prefWidth="160"
+                            onAction="#goToAnnees"
+                            style="
+                                -fx-background-color:#3b82f6;
+                                -fx-text-fill:white;
+                                -fx-font-size:14;
+                                -fx-font-weight:bold;
+                                -fx-padding:10 0;
+                                -fx-background-radius:8;
+                            "/>
+                </VBox>
+
+                <!-- ===== GROUPES ===== -->
+                <VBox spacing="12"
+                      alignment="CENTER"
+                      prefWidth="240"
+                      style="
+                          -fx-background-color:white;
+                          -fx-padding:24;
+                          -fx-background-radius:14;
+                          -fx-border-radius:14;
+                          -fx-effect:dropshadow(gaussian, rgba(0,0,0,0.18), 18, 0, 0, 6);
+                      ">
+                    <Label text="👥" style="-fx-font-size:40;"/>
+                    <Label text="Groupes"
+                           style="-fx-font-size:17; -fx-font-weight:bold;"/>
+                    <Label text="Organisation des groupes par année"
+                           wrapText="true"
+                           style="-fx-text-fill:#6b7280; -fx-text-alignment:center;"/>
+                    <Button fx:id="btnGroupes"
+                            text="Gérer"
+                            prefWidth="160"
+                            onAction="#goToGroupes"
+                            style="
+                                -fx-background-color:#22c55e;
+                                -fx-text-fill:white;
+                                -fx-font-size:14;
+                                -fx-font-weight:bold;
+                                -fx-padding:10 0;
+                                -fx-background-radius:8;
+                            "/>
+                </VBox>
+
+                <!-- ===== ÉTUDIANTS ===== -->
+                <VBox spacing="12"
+                      alignment="CENTER"
+                      prefWidth="240"
+                      style="
+                          -fx-background-color:white;
+                          -fx-padding:24;
+                          -fx-background-radius:14;
+                          -fx-border-radius:14;
+                          -fx-effect:dropshadow(gaussian, rgba(0,0,0,0.18), 18, 0, 0, 6);
+                      ">
+                    <Label text="🎓" style="-fx-font-size:40;"/>
+                    <Label text="Étudiants"
+                           style="-fx-font-size:17; -fx-font-weight:bold;"/>
+                    <Label text="Gestion complète des étudiants"
+                           wrapText="true"
+                           style="-fx-text-fill:#6b7280; -fx-text-alignment:center;"/>
+                    <Button fx:id="btnEtudiants"
+                            text="Gérer"
+                            prefWidth="160"
+                            onAction="#goToEtudiants"
+                            style="
+                                -fx-background-color:#a855f7;
+                                -fx-text-fill:white;
+                                -fx-font-size:14;
+                                -fx-font-weight:bold;
+                                -fx-padding:10 0;
+                                -fx-background-radius:8;
+                            "/>
+                </VBox>
+
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>

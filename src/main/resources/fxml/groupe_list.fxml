@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.monapp.controller.GroupeListController"
+            prefHeight="550"
+            prefWidth="900"
+            style="
+                -fx-background-color:linear-gradient(to bottom, #f5f7fa, #e9ecf1);
+            ">
+
+    <!-- ================= TOP BAR ================= -->
+    <top>
+        <HBox alignment="CENTER_LEFT"
+              spacing="15"
+              style="
+                  -fx-padding:18 24;
+                  -fx-background-color:white;
+                  -fx-effect:dropshadow(gaussian, rgba(0,0,0,0.12), 10, 0, 0, 2);
+              ">
+
+            <Label text="👥 Gestion des Groupes"
+                   style="
+                       -fx-font-size:22;
+                       -fx-font-weight:bold;
+                       -fx-text-fill:#2c3e50;
+                   "/>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <Button fx:id="btnAdd"
+                    text="➕ Ajouter un groupe"
+                    onAction="#goToAdd"
+                    style="
+                        -fx-background-color:#22c55e;
+                        -fx-text-fill:white;
+                        -fx-font-size:14;
+                        -fx-font-weight:bold;
+                        -fx-padding:10 20;
+                        -fx-background-radius:8;
+                    "/>
+
+            <Button text="⬅ Retour"
+                    onAction="#goToDashboard"
+                    style="
+                        -fx-background-color:#e5e7eb;
+                        -fx-text-fill:#374151;
+                        -fx-font-size:14;
+                        -fx-padding:10 18;
+                        -fx-background-radius:8;
+                    "/>
+        </HBox>
+    </top>
+
+    <!-- ================= CENTER ================= -->
+    <center>
+        <VBox alignment="TOP_CENTER"
+              spacing="20"
+              style="-fx-padding:30;">
+
+            <!-- Card -->
+            <VBox spacing="15"
+                  maxWidth="800"
+                  style="
+                      -fx-padding:25;
+                      -fx-background-color:white;
+                      -fx-background-radius:14;
+                      -fx-border-radius:14;
+                      -fx-effect:dropshadow(gaussian, rgba(0,0,0,0.18), 18, 0, 0, 6);
+                  ">
+
+                <Label text="Liste des groupes"
+                       style="
+                           -fx-font-size:16;
+                           -fx-font-weight:600;
+                           -fx-text-fill:#374151;
+                       "/>
+
+                <!-- Search and Filter Controls -->
+                <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-padding:10 0 5 0;">
+                    
+                    <TextField fx:id="searchField" 
+                               promptText="🔍 Rechercher un groupe..." 
+                               prefWidth="280"
+                               style="
+                                   -fx-background-color:#f9fafb;
+                                   -fx-border-color:#e5e7eb;
+                                   -fx-border-radius:8;
+                                   -fx-background-radius:8;
+                                   -fx-padding:8 12;
+                                   -fx-font-size:13;
+                               "/>
+                    
+                    <ComboBox fx:id="anneeFilter" 
+                              promptText="Filtrer par année"
+                              prefWidth="200"
+                              style="
+                                  -fx-background-color:#f9fafb;
+                                  -fx-border-color:#e5e7eb;
+                                  -fx-border-radius:8;
+                                  -fx-background-radius:8;
+                                  -fx-font-size:13;
+                              "/>
+                    
+                    <Button fx:id="btnReset" 
+                            text="🔄 Réinitialiser" 
+                            onAction="#resetFilters"
+                            style="
+                                -fx-background-color:#f3f4f6;
+                                -fx-text-fill:#374151;
+                                -fx-font-size:13;
+                                -fx-font-weight:600;
+                                -fx-padding:8 16;
+                                -fx-background-radius:8;
+                            "/>
+                    
+                </HBox>
+
+                <TableView fx:id="table"
+                           style="
+                               -fx-background-color:transparent;
+                               -fx-border-color:#e5e7eb;
+                               -fx-border-radius:8;
+                           ">
+
+                    <columns>
+                        <TableColumn fx:id="nomCol"
+                                     text="Nom du groupe"
+                                     prefWidth="300"/>
+
+                        <TableColumn fx:id="anneeCol"
+                                     text="Année"
+                                     prefWidth="200"/>
+
+                        <TableColumn fx:id="actionCol"
+                                     text="Actions"
+                                     prefWidth="200"/>
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+        </VBox>
+    </center>
+
+</BorderPane>

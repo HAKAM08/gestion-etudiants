@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.monapp.controller.AnneeEditController"
+      spacing="30"
+      alignment="TOP_CENTER"
+      style="
+          -fx-padding:40;
+          -fx-background-color:linear-gradient(to bottom, #f5f7fa, #e9ecf1);
+      ">
+
+    <!-- Card -->
+    <VBox spacing="25"
+          alignment="TOP_LEFT"
+          maxWidth="500"
+          style="
+              -fx-padding:35;
+              -fx-background-color:white;
+              -fx-background-radius:14;
+              -fx-border-radius:14;
+              -fx-effect:dropshadow(gaussian, rgba(0,0,0,0.18), 18, 0, 0, 6);
+          ">
+
+        <!-- Header -->
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Label text="✏️ Modifier une Année"
+                   style="
+                       -fx-font-size:24;
+                       -fx-font-weight:bold;
+                       -fx-text-fill:#2c3e50;
+                   "/>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <Button text="🗑 Supprimer"
+                    onAction="#onDelete"
+                    style="
+                        -fx-background-color:#fee2e2;
+                        -fx-text-fill:#b91c1c;
+                        -fx-font-size:13;
+                        -fx-font-weight:600;
+                        -fx-padding:8 14 8 14;
+                        -fx-background-radius:8;
+                    "/>
+        </HBox>
+
+        <!-- Subtitle -->
+        <Label text="Modifiez les informations de l'année académique sélectionnée"
+               wrapText="true"
+               style="
+                   -fx-font-size:14;
+                   -fx-text-fill:#6b7280;
+               "/>
+
+        <!-- Form -->
+        <VBox spacing="10">
+            <Label text="Nom de l'année"
+                   style="
+                       -fx-font-size:14;
+                       -fx-font-weight:600;
+                       -fx-text-fill:#374151;
+                   "/>
+
+            <TextField fx:id="nomField"
+                       style="
+                           -fx-font-size:16;
+                           -fx-padding:12 14 12 14;
+                           -fx-background-radius:8;
+                           -fx-border-radius:8;
+                           -fx-border-color:#cbd5e1;
+                       "/>
+        </VBox>
+
+        <!-- Actions -->
+        <HBox spacing="14" alignment="CENTER_RIGHT">
+
+            <Button text="Retour"
+                    onAction="#onBack"
+                    style="
+                        -fx-background-color:#e5e7eb;
+                        -fx-text-fill:#374151;
+                        -fx-font-size:14;
+                        -fx-padding:10 22 10 22;
+                        -fx-background-radius:8;
+                    "/>
+
+            <Button text="💾 Enregistrer"
+                    onAction="#onUpdate"
+                    style="
+                        -fx-background-color:#3b82f6;
+                        -fx-text-fill:white;
+                        -fx-font-size:15;
+                        -fx-font-weight:bold;
+                        -fx-padding:12 26 12 26;
+                        -fx-background-radius:8;
+                    "/>
+
+        </HBox>
+
+    </VBox>
+
+</VBox>

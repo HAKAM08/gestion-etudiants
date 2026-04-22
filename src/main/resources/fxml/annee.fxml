@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.monapp.controller.AnneeController"
+            prefWidth="750" prefHeight="450">
+
+    <!-- ===== HEADER ===== -->
+    <top>
+        <HBox spacing="15"
+              alignment="CENTER_LEFT"
+              style="-fx-padding: 15; -fx-background-color: #34495e;">
+
+            <Label text="Gestion des Années"
+                   style="-fx-text-fill: white; -fx-font-size: 20;"/>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <Button text="⬅ Retour Dashboard"
+                    onAction="#onBackToDashboard"/>
+        </HBox>
+    </top>
+
+
+    <!-- ===== CENTER CONTENT ===== -->
+    <center>
+        <VBox spacing="15" style="-fx-padding: 15;">
+
+            <!-- Formulaire -->
+            <HBox spacing="10">
+                <TextField fx:id="nomField"
+                           promptText="Nom de l'année"
+                           prefWidth="250"/>
+
+                <Button text="Ajouter"
+                        prefWidth="100"
+                        onAction="#onAdd"/>
+
+                <Button text="Modifier"
+                        prefWidth="100"
+                        onAction="#onUpdate"/>
+
+                <Button text="Supprimer"
+                        prefWidth="100"
+                        onAction="#onDelete"/>
+            </HBox>
+
+            <!-- Table -->
+            <TableView fx:id="table" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="idCol"
+                                 text="ID"
+                                 prefWidth="80"/>
+
+                    <TableColumn fx:id="nomCol"
+                                 text="Nom de l'année"
+                                 prefWidth="300"/>
+
+                    <TableColumn fx:id="createdAtCol"
+                                 text="Date de création"
+                                 prefWidth="200"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>
